@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "bio-social-media": {
+      "hosting": {
+        "OSIWeb": [
+          "bio-social-media"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "bio-social-media"
+  }
+}

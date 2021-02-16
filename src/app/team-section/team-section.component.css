@@ -1,14 +1,15 @@
 .team {
-  margin: 0 0 2em 0;
+  margin: 0 0 0 0;
   list-style-type: none;
-  padding: 20px;
-  width: 90%;
+  padding: 0 0 20px 0;
+  width: inherit;
 }
 .member {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
 }
 .member-description {
-  padding: 20px;
+  padding: 10px;
   display: inline-block;
   width: 55%;
   float: right;
@@ -16,10 +17,18 @@
 .member-image {
   padding: 10px;
   display: inline-block;
+  vertical-align: center;
   width: 20%;
-  float: left;
   height: auto;
 }
 p {
   text-align: left;
+}
+
+img.founder {
+  height:auto;
+  width: 100%;
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
