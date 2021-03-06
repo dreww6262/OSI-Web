@@ -1,4 +1,6 @@
 .video {
-  padding: 20px;
-  width: available;
+  margin: 0;
+  min-width: 320px;
+  height: auto;
+  display: block;
 }
