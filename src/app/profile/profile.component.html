@@ -1,5 +1,710 @@
-<div class="hex-container">
-  <div *ngFor="let hexagon in hexagons" class="hex-item">
+<div style="width: 100%; height: 100%; background: #333333; margin-top: -20px; padding-bottom: 20px">
 
-  </div>
+<h1 style="width: 100%; text-align: center; padding: 40px 0 30px 0; color: white">@{{username}}</h1>
+
+<ul id="one-row" *ngIf="numHex < 7; else two_rows">
+  <li class="hex-one" style="margin-left: 16.665%">
+    <div class="hexIn" *ngIf="numHex > 4; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(4)}}">
+        <img src="{{createLink(4)}}" alt="" />
+        <p *ngIf='coverText(4) !== emptyString'>{{coverText(4)}}</p>
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+  <li class="hex-one">
+    <div class="hexIn" *ngIf="numHex > 5; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(5)}}">
+        <img src="{{createLink(5)}}" alt="" />
+        {{coverText(5)}}
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+  <li class="hex-one">
+    <div class="hexIn" *ngIf="numHex > 3; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(3)}}">
+        <img src="{{createLink(3)}}" alt="" />
+        <p *ngIf='coverText(3)!== emptyString'>{{coverText(3)}}</p>
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+  <li class="hex-one">
+    <div class="hexIn">
+      <a class="hexLink">
+        <img src="{{profileUrl()}}" alt="">
+      </a>
+    </div>
+  </li>
+  <li class="hex-one">
+    <div class="hexIn" *ngIf="numHex > 0; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(0)}}">
+        <img src="{{createLink(0)}}" alt="" />
+        <p *ngIf='coverText(0)!== emptyString'>{{coverText(0)}}</p>
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+  <li class="hex-one" style="margin-left: 16.665%">
+    <div class="hexIn" *ngIf="numHex > 2; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(2)}}">
+        <img src="{{createLink(2)}}" alt="" />
+        <p *ngIf='coverText(2)!== emptyString'>{{coverText(2)}}</p>
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+  <li class="hex-one">
+    <div class="hexIn" *ngIf="numHex > 1; else not_there">
+      <a class="hexLink" href="user/{{username}}/{{hexID(1)}}">
+        <img src="{{createLink(1)}}" alt="" />
+        <p *ngIf='coverText(1)!== emptyString'>{{coverText(1)}}</p>
+      </a>
+    </div>
+    <ng-template #not_there>
+      <div class="hexNotVisible"></div>
+    </ng-template>
+  </li>
+</ul>
+
+<ng-template #two_rows>
+  <ul id="two-rows" *ngIf="numHex < 19; else three_rows">
+    <li class="hex-two" style="margin-left: 20%">
+      <div class="hexIn" *ngIf="numHex > 9; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(19)}}">
+          <img src="{{createLink(9)}}" alt="" />
+          <p *ngIf='coverText(9)!== emptyString'>{{coverText(9)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 10; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(10)}}">
+          <img src="{{createLink(10)}}" alt="" />
+          <p *ngIf='coverText(10)!== emptyString'>{{coverText(10)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 11; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(11)}}">
+          <img src="{{createLink(11)}}" alt="" />
+          <p *ngIf='coverText(11)!== emptyString'>{{coverText(11)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexNotVisible"></div>
+    </li>
+    <li class="hex-two" style="margin-left: 10%">
+      <div class="hexIn" *ngIf="numHex > 7; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(7)}}">
+          <img src="{{createLink(7)}}" alt="" />
+          <p *ngIf='coverText(7)!== emptyString'>{{coverText(7)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 4; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(4)}}">
+          <img src="{{createLink(4)}}" alt="" />
+          <p *ngIf='coverText(4)!== emptyString'>{{coverText(4)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 5; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(5)}}">
+          <img src="{{createLink(5)}}" alt="" />
+          <p *ngIf='coverText(5)!== emptyString'>{{coverText(5)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 8; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(8)}}">
+          <img src="{{createLink(8)}}" alt="" />
+          <p *ngIf='coverText(8)!== emptyString'>{{coverText(8)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 15; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(15)}}">
+          <img src="{{createLink(15)}}" alt="" />
+          <p *ngIf='coverText(15)!== emptyString'>{{coverText(15)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 3; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(3)}}">
+          <img src="{{createLink(3)}}" alt="" />
+          <p *ngIf='coverText(3)!== emptyString'>{{coverText(3)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn">
+        <a class="hexLink">
+          <img src="{{profileUrl()}}" alt="">
+        </a>
+      </div>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 0; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(0)}}">
+          <img src="{{createLink(0)}}" alt="" />
+          <p *ngIf='coverText(0)!== emptyString'>{{coverText(0)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 12; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(12)}}">
+          <img src="{{createLink(12)}}" alt="" />
+          <p *ngIf='coverText(12)!== emptyString'>{{coverText(12)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two" style="margin-left: 10%">
+      <div class="hexIn" *ngIf="numHex > 16; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(16)}}">
+          <img src="{{createLink(16)}}" alt="" />
+          <p *ngIf='coverText(16)!== emptyString'>{{coverText(16)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 2; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(2)}}">
+          <img src="{{createLink(2)}}" alt="" />
+          <p *ngIf='coverText(2)!== emptyString'>{{coverText(2)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 1; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(1)}}">
+          <img src="{{createLink(1)}}" alt="" />
+          <p *ngIf='coverText(1)!== emptyString'>{{coverText(1)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 13; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(13)}}">
+          <img src="{{createLink(13)}}" alt="" />
+          <p *ngIf='coverText(13)!== emptyString'>{{coverText(13)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two" style="margin-left: 20%">
+      <div class="hexIn" *ngIf="numHex > 17; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(17)}}">
+          <img src="{{createLink(17)}}" alt="" />
+          <p *ngIf='coverText(17)!== emptyString'>{{coverText(17)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 6; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(6)}}">
+          <img src="{{createLink(6)}}" alt="" />
+          <p *ngIf='coverText(6)!== emptyString'>{{coverText(6)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-two">
+      <div class="hexIn" *ngIf="numHex > 14; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(14)}}">
+          <img src="{{createLink(14)}}" alt="" />
+          <p *ngIf='coverText(14)!== emptyString'>{{coverText(14)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+  </ul>
+</ng-template>
+
+<ng-template #three_rows>
+  <ul id="three-rows">
+    <li class="hex-three" style="margin-left: 21.43%">
+      <div class="hexIn" *ngIf="numHex > 35; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(35)}}">
+          <img src="{{createLink(35)}}" alt="" />
+          <p *ngIf='coverText(35)!== emptyString'>{{coverText(35)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 18; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(18)}}">
+          <img src="{{createLink(18)}}" alt="" />
+          <p *ngIf='coverText(18)!== emptyString'>{{coverText(18)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 19; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(19)}}">
+          <img src="{{createLink(19)}}" alt="" />
+          <p *ngIf='coverText(19)!== emptyString'>{{coverText(19)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 20; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(20)}}">
+          <img src="{{createLink(20)}}" alt="" />
+          <p *ngIf='coverText(20)!== emptyString'>{{coverText(20)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexNotVisible"></div>
+    </li>
+    <li class="hex-three" style="margin-left: 14.285%">
+      <div class="hexIn" *ngIf="numHex > 34; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(34)}}">
+          <img src="{{createLink(34)}}" alt="" />
+          <p *ngIf='coverText(34)!== emptyString'>{{coverText(34)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 9; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(9)}}">
+          <img src="{{createLink(9)}}" alt="" />
+          <p *ngIf='coverText(9)!== emptyString'>{{coverText(9)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 10; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(10)}}">
+          <img src="{{createLink(10)}}" alt="" />
+          <p *ngIf='coverText(10)!== emptyString'>{{coverText(10)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 11; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(11)}}">
+          <img src="{{createLink(11)}}" alt="" />
+          <p *ngIf='coverText(11)!== emptyString'>{{coverText(11)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 21; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(21)}}">
+          <img src="{{createLink(21)}}" alt="" />
+          <p *ngIf='coverText(21)!== emptyString'>{{coverText(21)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexNotVisible"></div>
+    </li>
+    <li class="hex-three" style="margin-left: 7.143%">
+      <div class="hexIn" *ngIf="numHex > 33; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(33)}}">
+          <img src="{{createLink(33)}}" alt="" />
+          <p *ngIf='coverText(33)!== emptyString'>{{coverText(33)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 7; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(7)}}">
+          <img src="{{createLink(7)}}" alt="" />
+          <p *ngIf='coverText(7)!== emptyString'>{{coverText(7)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 4; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(4)}}">
+          <img src="{{createLink(4)}}" alt="" />
+          <p *ngIf='coverText(4)!== emptyString'>{{coverText(4)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 5; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(5)}}">
+          <img src="{{createLink(5)}}" alt="" />
+          <p *ngIf='coverText(5)!== emptyString'>{{coverText(5)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 8; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(8)}}">
+          <img src="{{createLink(8)}}" alt="" />
+          <p *ngIf='coverText(8)!== emptyString'>{{coverText(8)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 22; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(22)}}">
+          <img src="{{createLink(22)}}" alt="" />
+          <p *ngIf='coverText(22)!== emptyString'>{{coverText(22)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 32; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(32)}}">
+          <img src="{{createLink(32)}}" alt="" />
+          <p *ngIf='coverText(32)!== emptyString'>{{coverText(32)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 15; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(15)}}">
+          <img src="{{createLink(15)}}" alt="" />
+          <p *ngIf='coverText(15)!== emptyString'>{{coverText(15)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 3; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(3)}}">
+          <img src="{{createLink(3)}}" alt="" />
+          <p *ngIf='coverText(3)!== emptyString'>{{coverText(3)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn">
+        <a class="hexLink">
+          <img src="{{profileUrl()}}" alt="">
+        </a>
+      </div>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 0; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(0)}}">
+          <img src="{{createLink(0)}}" alt="" />
+          <p *ngIf='coverText(0)!== emptyString'>{{coverText(0)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 12; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(12)}}">
+          <img src="{{createLink(12)}}" alt="" />
+          <p *ngIf='coverText(12)!== emptyString'>{{coverText(12)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 23; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(23)}}">
+          <img src="{{createLink(23)}}" alt="" />
+          <p *ngIf='coverText(23)!== emptyString'>{{coverText(23)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three" style="margin-left: 7.143%">
+      <div class="hexIn" *ngIf="numHex > 31; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(31)}}">
+          <img src="{{createLink(31)}}" alt="" />
+          <p *ngIf='coverText(31)!== emptyString'>{{coverText(31)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 16; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(16)}}">
+          <img src="{{createLink(16)}}" alt="" />
+          <p *ngIf='coverText(16)!== emptyString'>{{coverText(16)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 2; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(2)}}">
+          <img src="{{createLink(2)}}" alt="" />
+          <p *ngIf='coverText(2)!== emptyString'>{{coverText(2)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 1; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(1)}}">
+          <img src="{{createLink(1)}}" alt="" />
+          <p *ngIf='coverText(1)!== emptyString'>{{coverText(1)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 13; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(13)}}">
+          <img src="{{createLink(13)}}" alt="" />
+          <p *ngIf='coverText(13)!== emptyString'>{{coverText(13)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 24; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(24)}}">
+          <img src="{{createLink(24)}}" alt="" />
+          <p *ngIf='coverText(24)!== emptyString'>{{coverText(24)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three" style="margin-left: 14.285%">
+      <div class="hexIn" *ngIf="numHex > 30; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(30)}}">
+          <img src="{{createLink(30)}}" alt="" />
+          <p *ngIf='coverText(30)!== emptyString'>{{coverText(30)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 17; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(17)}}">
+          <img src="{{createLink(17)}}" alt="" />
+          <p *ngIf='coverText(17)!== emptyString'>{{coverText(17)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 6; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(6)}}">
+          <img src="{{createLink(6)}}" alt="" />
+          <p *ngIf='coverText(6)!== emptyString'>{{coverText(6)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 14; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(14)}}">
+          <img src="{{createLink(14)}}" alt="" />
+          <p *ngIf='coverText(14)!== emptyString'>{{coverText(14)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 25; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(25)}}">
+          <img src="{{createLink(25)}}" alt="" />
+          <p *ngIf='coverText(25)!== emptyString'>{{coverText(25)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexNotVisible"></div>
+    </li>
+    <li class="hex-three" style="margin-left: 21.43%">
+      <div class="hexIn" *ngIf="numHex > 29; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(29)}}">
+          <img src="{{createLink(29)}}" alt="" />
+          <p *ngIf='coverText(29)!== emptyString'>{{coverText(29)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 28; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(28)}}">
+          <img src="{{createLink(28)}}" alt="" />
+          <p *ngIf='coverText(28)!== emptyString'>{{coverText(28)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 27; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(27)}}">
+          <img src="{{createLink(27)}}" alt="" />
+          <p *ngIf='coverText(27)!== emptyString'>{{coverText(27)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+    <li class="hex-three">
+      <div class="hexIn" *ngIf="numHex > 26; else not_there">
+        <a class="hexLink" href="user/{{username}}/{{hexID(26)}}">
+          <img src="{{createLink(26)}}" alt="" />
+          <p *ngIf='coverText(26)!== emptyString'>{{coverText(26)}}</p>
+        </a>
+      </div>
+      <ng-template #not_there>
+        <div class="hexNotVisible"></div>
+      </ng-template>
+    </li>
+  </ul>
+</ng-template>
 </div>

@@ -9,6 +9,7 @@ export class Hexagon {
   thumbResource: string;
   type: string;
   views: number;
+  coverText: string;
 
   toString(): string {
     return this.docID;

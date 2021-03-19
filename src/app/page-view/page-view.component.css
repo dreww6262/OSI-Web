@@ -1,0 +1,33 @@
+.page-view-container {
+  width: 100%;
+  height: calc(100% + 15px);
+  background: #333333;
+  margin-top: -15px;
+}
+
+.text-container {
+  height: calc(20% - 15px);
+  width: 100%;
+  text-align: center;
+}
+
+.view-container {
+  height: 80%;
+}
+
+.left-view {
+
+}
+
+.center-view {
+
+}
+
+.right-view {
+
+}
+
+h1, h2 {
+  padding-top: 10px;
+  color: white;
+}

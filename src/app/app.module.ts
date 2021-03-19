@@ -16,6 +16,7 @@ import {environment} from '../environments/environment';
 import {AngularFirestoreModule} from '@angular/fire/firestore';
 import {RouterModule} from '@angular/router';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { PageViewComponent } from './page-view/page-view.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
     HomeComponent,
     ProfileComponent,
     NotFoundComponent,
+    PageViewComponent,
   ],
   imports: [
     BrowserModule,

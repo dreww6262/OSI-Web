@@ -16,10 +16,34 @@ export class HexagonService {
       hexagons = [];
       snap.docs.forEach(doc => {
         const hex = doc.data() as Hexagon;
-        hexagons.push(hex);
-        console.log(hex.docID);
+        if (!hex.isArchived) {
+          hex.thumbResource = hex.thumbResource.split('/').join('%2F');
+          hexagons.push(hex);
+          console.log(hex.docID);
+        }
       });
     });
-    return hexagons;
+    const reOrderedHexagons = new Array<Hexagon>(hexagons.length);
+    const unassigned = [];
+    hexagons.forEach(value => {
+      if (reOrderedHexagons.length < value.location && reOrderedHexagons[value.location] === null) {
+        reOrderedHexagons[value.location] = value;
+      }
+      else {
+        unassigned.push(value);
+      }
+    });
+    unassigned.forEach(value => {
+      const loc = reOrderedHexagons.findIndex(this.isNullOrUndefined);
+      if (loc === null || loc < 0) {
+        return;
+      }
+      reOrderedHexagons[loc] = value;
+    });
+    return reOrderedHexagons;
+  }
+
+  isNullOrUndefined(hex: Hexagon): boolean {
+    return hex === null || hex === undefined;
   }
 }
